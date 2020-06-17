@@ -34,4 +34,10 @@ public class RoomService {
     public void deleteRoom(Long roomId) {
         roomRepository.deleteById(roomId);
     }
+
+    public List<Room> getAllRoomByRoomStatus(String roomStatus) {
+        List<Room> room = new ArrayList<>();
+        roomRepository.findByRoomStatus(roomStatus).forEach(room::add);
+        return room;
+    }
 }

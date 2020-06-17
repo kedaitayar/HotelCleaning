@@ -11,31 +11,36 @@ import java.util.List;
 public class RoomController {
 
     @Autowired
-    private RoomService roomservice;
+    private RoomService roomService;
 
     @RequestMapping("/room")
     public List<Room> getAllRoom() {
-        return roomservice.getAllRoom();
+        return roomService.getAllRoom();
     }
 
     @RequestMapping("/room/{roomId}")
-    public Room getRoomId(@PathVariable Long roomId) {
-        return roomservice.getRoom(roomId);
+    public Room getRoomById(@PathVariable Long roomId) {
+        return roomService.getRoom(roomId);
+    }
+
+    @RequestMapping("/room/status/{roomStatus}")
+    public List<Room> getRoomByRoomStatus(@PathVariable String roomStatus) {
+        return roomService.getAllRoomByRoomStatus(roomStatus);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/room")
     public void addRoom(@RequestBody Room room) {
-        roomservice.addRoom(room);
+        roomService.addRoom(room);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/room")
     public void updateRoom(@RequestBody Room room) {
-        roomservice.updateRoom(room);
+        roomService.updateRoom(room);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/room/{roomId}")
     public void deleteRoom(@PathVariable Long roomId) {
-        roomservice.deleteRoom(roomId);
+        roomService.deleteRoom(roomId);
     }
 
 }
