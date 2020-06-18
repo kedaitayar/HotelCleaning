@@ -1,3 +1,3 @@
 # HotelCleaning
 
-hoho haha
+Hotel Cleaning RESTfull API (Spring Boot framework)
